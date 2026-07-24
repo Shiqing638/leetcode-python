@@ -1,0 +1,20 @@
+# Methode: Greedy
+class Solution:
+    def partitionLabels(self, s: str) -> list[int]:
+        letter = [0] * 26
+        for i in range(len(s)):
+            letter[ord(s[i]) - ord('a')] = i
+        
+        res = []
+        start = 0
+        end = 0
+        for i in range(len(s)):
+            end = max(end, letter[ord(s[i]) - ord('a')])
+            if i == end:
+                res.append(end-start+1)
+                start = i + 1
+        return res
+    
+s = "ababcbacadefegdehijhklij"
+sol = Solution()
+print(sol.partitionLabels(s))
