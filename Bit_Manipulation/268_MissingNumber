@@ -1,0 +1,26 @@
+# Methode 1: sort
+# Methode 2: sum
+# Methode 3: XOR
+
+#1
+# class Solution:
+#     def missingNumber(self, nums: List[int]) -> int:
+#         nums.sort()
+#         for i in range(len(nums)):
+#             if nums[i] != i:
+#                 return nums[i]
+#         return len(nums)
+
+#2
+# class Solution:
+#     def missingNumber(self, nums: List[int]) -> int:
+#         return sum(range(len(nums)+1)) - sum(nums)
+
+#3
+class Solution:
+    def missingNumber(self, nums: List[int]) -> int:
+        res = len(nums)
+        for i in range(len(nums)):
+            s = nums[i] ^ i
+            res ^= s
+        return res
