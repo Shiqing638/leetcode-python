@@ -1,0 +1,19 @@
+class Solution:
+    def areAlmostEqual(self, s1:str, s2:str) -> bool:
+        n = len(s1)
+        diff = []
+
+        for i in range(len(s1)):
+            if s1[i] != s2[i]:
+                diff.append(i)
+        if len(diff) == 0:
+            return True
+        elif len(diff) == 2:
+            if s1[diff[0]] == s2[diff[1]] and s1[diff[1]] == s2[diff[0]]:
+                return True
+            else:
+                return False
+        else: return False
+
+        
+        

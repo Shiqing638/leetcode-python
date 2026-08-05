@@ -1,0 +1,72 @@
+DP实际上只有两种写法
+方法一：Memoization（Top-down）
+
+就是：
+
+递归
+
+memo
+
+例如：
+
+memo = {}
+
+def dfs(i):
+
+    if i >= n:
+        return 0
+
+    if i in memo:
+        return memo[i]
+
+    memo[i] = ...
+    return memo[i]
+
+流程：
+
+大问题
+↓
+
+递归
+
+↓
+
+遇到小问题
+
+↓
+
+存起来
+
+特点：
+
+从上往下。
+
+方法二：Tabulation（Bottom-up）
+
+不用递归。
+
+直接填表。
+
+例如：
+
+dp[n] = 0
+
+for i in range(n-1, -1, -1):
+    dp[i] = ...
+
+流程：
+
+最小问题
+
+↓
+
+一步一步推
+
+↓
+
+最后得到答案
+
+特点：
+
+从下往上。
+
